@@ -1,0 +1,23 @@
+﻿@model V5L1.Models.Link
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>V5L1</title>
+</head>
+<body class="panel-body">
+    <h3>Add Link</h3>
+    <form asp-action="AddLink" method="post">
+        <div class="form-group">
+            <label asp-for="Name">Name:</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Url">Price:</label>
+            <input asp-for="Url" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+        <a asp-action="Index" class="btn btn-default">Cancel</a>
+    </form>
+</body>
+</html>

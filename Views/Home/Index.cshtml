@@ -1,0 +1,55 @@
+﻿@model IEnumerable<V5L1.Models.Link>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>V5L1</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr><td>Name</td><td>Url</td></tr>
+        </thead>
+        <tbody>
+            @foreach (Link p in Model)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@p.Url</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a class="btn btn-primary" asp-action="AddLink">
+            Add New Link
+        </a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
