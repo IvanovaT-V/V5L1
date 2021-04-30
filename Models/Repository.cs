@@ -8,8 +8,7 @@ namespace V5L1.Models
     public class Repository : IRepository
     {
             private static Repository sharedRepository = new Repository();
-            private Dictionary<string, Link> links
-            = new Dictionary<string, Link>();
+            private Dictionary<string, Link> links = new Dictionary<string, Link>();
             public static Repository SharedRepository => sharedRepository;
             public Repository()
             {
@@ -23,14 +22,12 @@ new Link { Name = "dddddd", Url = "dddddd" }
                 {
                     AddLink(r);
                 }
-                   links.Add("Error", null);
         }
-            public IEnumerable<Link> Links=> links.Values;
+            public IEnumerable<Link> Links => links.Values;
         public void AddLink(Link r) => links.Add(r.Name, r);
         public Link DelLink(String n)
         {
-            Link deletedLink = links.Values
-            .FirstOrDefault(p => p.Name == n);
+            Link deletedLink = links.Values.FirstOrDefault(p => p.Name == n) ;
             if (deletedLink != null)
             {
                 links.Remove(n);
