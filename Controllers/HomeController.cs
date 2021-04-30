@@ -17,15 +17,24 @@ namespace V5L1.Controllers
         {
             _logger = logger;
         }
-        Repository Repository = Repository.SharedRepository;
-        public IActionResult Index() => View(Repository.SharedRepository.Links.Where(p => p?.Name != null));
+        public IRepository repository = Repository.SharedRepository;
+        
+        public IActionResult Index() => View(repository.Links.Where(p => p?.Name != null));
 
         [HttpGet]
         public IActionResult AddLink() => View(new Link());
+        
         [HttpPost]
         public IActionResult AddLink(Link r)
         {
-            Repository.AddLink(r);
+            repository.AddLink(r);
+            TempData["message"] = $"{r.Name} was added";
+            return RedirectToAction("Index");
+        }
+        public IActionResult DelLink(String r)
+        {
+            Link deletedLink = repository.DelLink(r);
+            TempData["message"] = $"{deletedLink.Name} was deleted";
             return RedirectToAction("Index");
         }
 

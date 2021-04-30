@@ -5,19 +5,22 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>V5L1</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
-<body>
-    <table>
+<body class="panel-body">
+    <h3 class="text-center">Links</h3>
+    <table class="table table-bordered table-striped">
         <thead>
-            <tr><td>Name</td><td>Url</td></tr>
+            <tr><td>Name</td><td>Url</td><td>Delete</td></tr>
         </thead>
         <tbody>
             @foreach (Link p in Model)
             {
-                <tr>
-                    <td>@p.Name</td>
-                    <td>@p.Url</td>
-                </tr>
+            <tr>
+                <td>@p.Name</td>
+                <td><a href="@p.Url">@p.Url</a></td>
+                <td><a class="btn btn-primary" asp-action="DelLink" asp-route-r="@p.Name">Delete</a></td>
+            </tr>
             }
         </tbody>
     </table>

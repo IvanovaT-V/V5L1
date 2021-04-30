@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace V5L1.Models
 {
-    public class Repository
+    public class Repository : IRepository
     {
             private static Repository sharedRepository = new Repository();
             private Dictionary<string, Link> links
@@ -27,5 +27,16 @@ new Link { Name = "dddddd", Url = "dddddd" }
         }
             public IEnumerable<Link> Links=> links.Values;
         public void AddLink(Link r) => links.Add(r.Name, r);
+        public Link DelLink(String n)
+        {
+            Link deletedLink = links.Values
+            .FirstOrDefault(p => p.Name == n);
+            if (deletedLink != null)
+            {
+                links.Remove(n);
+                
+            }
+            return deletedLink;
         }
+    }
     }
