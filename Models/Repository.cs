@@ -24,7 +24,7 @@ new Link { Name = "dddddd", Url = "dddddd" }
                 }
         }
             public IEnumerable<Link> Links => links.Values;
-        public void AddLink(Link r) => links.Add(r.Name, r);
+        public void AddLink(Link r) { if (links.Count <= 50) links.Add(r.Name, r); }
         public Link DelLink(String n)
         {
             Link deletedLink = links.Values.FirstOrDefault(p => p.Name == n) ;

@@ -22,7 +22,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contacts</a>
                         </li>
                     </ul>
                 </div>
@@ -31,17 +31,20 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @if (TempData["message"] != null)
+            @if (TempData["message_add"] != null)
             {
-                <div class="alert alert-success">@TempData["message"]</div>
+                <div class="alert alert-success">@TempData["message_add"]</div>
+            }
+            @if (TempData["message_del"] != null)
+            {
+                <div class="alert alert-danger">@TempData["message_del"]</div>
             }
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - V5L1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - V5L1 - <a asp-area="" asp-controller="Home" asp-action="Contact">Contacts</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

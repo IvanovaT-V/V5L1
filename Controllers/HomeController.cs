@@ -28,17 +28,17 @@ namespace V5L1.Controllers
         public IActionResult AddLink(Link r)
         {
             repository.AddLink(r);
-            TempData["message"] = $"{r.Name} was added";
+            TempData["message_add"] = $"{r.Name} was added";
             return RedirectToAction("Index");
         }
         public IActionResult DelLink(String r)
         {
             Link deletedLink = repository.DelLink(r);
-            TempData["message"] = $"{deletedLink.Name} was deleted";
+            TempData["message_del"] = $"{deletedLink.Name} was deleted";
             return RedirectToAction("Index");
         }
 
-        public IActionResult Privacy()
+        public IActionResult Contact()
         {
             return View();
         }
